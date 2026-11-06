@@ -5,7 +5,7 @@ Durable public repository:
   https://github.com/araupooo/ethereum-cosmoshub-governance-audit-framework
 
   Public GitHub repository (visibility: Public, verified live via an
-  unauthenticated fetch). Default branch main, 7 commits. Root files:
+  unauthenticated fetch). Default branch main. Root files:
   README.md, rubric.md, matrix.md, findings.md, index.md, index.html
   (the rendered artifact page), walkthrough.log, public_artifact_url.txt,
   src/fetch_governance.py, outputs/results.json, outputs/results.txt,
