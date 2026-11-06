@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Ethereum and Cosmos Hub Governance-Audit Framework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f7f7f5;
+        --surface: #ffffff;
+        --ink: #1a1d21;
+        --ink-2: #454b53;
+        --ink-3: #6b727c;
+        --line: #e2e3de;
+        --line-strong: #c9cbc4;
+        --pass-bg: #e3f2e6;
+        --pass-ink: #166534;
+        --fail-bg: #fbe7e4;
+        --fail-ink: #b3261e;
+        --high-bg: #fbe7e4;
+        --high-ink: #b3261e;
+        --med-bg: #fdf0d5;
+        --med-ink: #8a5a00;
+        --low-bg: #e4ecf6;
+        --low-ink: #1d4e89;
+        --info-bg: #eceeec;
+        --info-ink: #4a5058;
+        --code-bg: #14181d;
+        --code-ink: #d7e0ea;
+        --accent: #1f4d3a;
+        --fail-line: #b3261e;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #101214;
+          --surface: #171a1d;
+          --ink: #e8eaec;
+          --ink-2: #b6bcc3;
+          --ink-3: #8a919a;
+          --line: #2a2e33;
+          --line-strong: #3a3f46;
+          --pass-bg: #173324;
+          --pass-ink: #7fd79b;
+          --fail-bg: #3d1d1a;
+          --fail-ink: #ff9d94;
+          --high-bg: #3d1d1a;
+          --high-ink: #ff9d94;
+          --med-bg: #3a2d10;
+          --med-ink: #f2c96b;
+          --low-bg: #1c2c42;
+          --low-ink: #8db8ec;
+          --info-bg: #26292d;
+          --info-ink: #aab1ba;
+          --code-bg: #0a0c0e;
+          --code-ink: #d7e0ea;
+          --accent: #7fd79b;
+          --fail-line: #ff9d94;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Archivo", -apple-system, "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+
+      .wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px 72px; }
+
+      /* ---------- Header ---------- */
+      header.report-head { padding: 44px 0 0; }
+      .kicker {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ink-3); margin: 0 0 12px;
+      }
+      h1 {
+        font-size: clamp(28px, 5.2vw, 44px);
+        line-height: 1.08; font-weight: 800; letter-spacing: -0.015em;
+        margin: 0 0 16px; max-width: 18ch;
+      }
+      .scored-line {
+        font-size: 16.5px; color: var(--ink-2); max-width: 68ch; margin: 0;
+      }
+      .scored-line .mono { font-size: 0.94em; color: var(--ink); }
+
+      .score-strip {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line-strong);
+        background: var(--surface);
+        margin: 28px 0 8px;
+      }
+      .score-cell { padding: 16px 18px 14px; border-left: 1px solid var(--line); }
+      .score-cell:first-child { border-left: none; }
+      .score-cell .num {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: clamp(24px, 4vw, 32px); font-weight: 600; line-height: 1.1;
+      }
+      .score-cell .lbl { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; letter-spacing: 0.02em; }
+      .score-cell.bad .num { color: var(--fail-ink); }
+
+      /* ---------- Sections ---------- */
+      section { margin-top: 48px; }
+      .sec-head {
+        display: flex; align-items: baseline; gap: 12px;
+        border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 20px;
+      }
+      .sec-head .no {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 13px; color: var(--ink-3);
+      }
+      h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+
+      /* ---------- Matrix table ---------- */
+      .chain-label {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--ink-3); margin: 26px 0 8px;
+      }
+      .chain-label:first-of-type { margin-top: 0; }
+      .chain-label .tally { color: var(--ink-2); text-transform: none; letter-spacing: 0; }
+
+      table.matrix {
+        width: 100%; border-collapse: collapse; background: var(--surface);
+        border: 1px solid var(--line-strong); font-size: 14.5px;
+      }
+      table.matrix th {
+        text-align: left; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--ink-3); font-weight: 600;
+        padding: 10px 14px; border-bottom: 1px solid var(--line-strong);
+        background: var(--bg);
+      }
+      table.matrix td { padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      table.matrix tr:last-child td { border-bottom: none; }
+      table.matrix tr.fail-row { box-shadow: inset 3px 0 0 var(--fail-line); }
+      td.rule { width: 27%; }
+      td.rule .rid {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px; color: var(--ink-3); display: block; margin-bottom: 2px;
+      }
+      td.rule .rname { font-weight: 600; }
+      td.result { width: 86px; }
+      td.measured { color: var(--ink-2); }
+      td.measured .mono { font-size: 0.92em; color: var(--ink); overflow-wrap: anywhere; }
+
+      .badge {
+        display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em;
+        padding: 3px 9px; border-radius: 3px; white-space: nowrap;
+      }
+      .badge.pass { background: var(--pass-bg); color: var(--pass-ink); }
+      .badge.fail { background: var(--fail-bg); color: var(--fail-ink); }
+      .badge.high { background: var(--high-bg); color: var(--high-ink); }
+      .badge.med  { background: var(--med-bg);  color: var(--med-ink); }
+      .badge.low  { background: var(--low-bg);  color: var(--low-ink); }
+      .badge.info { background: var(--info-bg); color: var(--info-ink); }
+
+      /* ---------- Findings ---------- */
+      .finding {
+        background: var(--surface); border: 1px solid var(--line);
+        padding: 18px 20px; margin-bottom: 12px;
+        display: grid; grid-template-columns: 118px 1fr; gap: 16px;
+      }
+      .finding .fmeta { display: flex; flex-direction: column; gap: 7px; align-items: flex-start; }
+      .finding .fid { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; color: var(--ink-3); font-weight: 600; }
+      .finding h3 { font-size: 16.5px; font-weight: 700; margin: 0 0 6px; line-height: 1.35; }
+      .finding p { margin: 0; color: var(--ink-2); font-size: 15px; }
+      .finding p .mono { font-size: 0.93em; color: var(--ink); overflow-wrap: anywhere; }
+      .finding.sev-high { border-left: 4px solid var(--fail-line); }
+
+      /* ---------- Reproduce ---------- */
+      .cmd {
+        background: var(--code-bg); color: var(--code-ink);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 14.5px; padding: 16px 18px; overflow-x: auto; white-space: nowrap;
+        margin: 0 0 14px;
+      }
+      .cmd .prompt { opacity: 0.55; margin-right: 8px; }
+      .repro p { color: var(--ink-2); max-width: 72ch; margin: 0; }
+      .repro p .mono { font-size: 0.93em; color: var(--ink); overflow-wrap: anywhere; }
+
+      /* ---------- Sources ---------- */
+      ul.sources { list-style: none; margin: 0; padding: 0; }
+      ul.sources li {
+        padding: 11px 0; border-bottom: 1px solid var(--line);
+        display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap;
+      }
+      ul.sources li:last-child { border-bottom: none; }
+      ul.sources .sname { font-weight: 600; min-width: 150px; }
+      ul.sources .surl {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 13px; color: var(--ink-2); overflow-wrap: anywhere; flex: 1; min-width: 220px;
+      }
+
+      footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 16px; }
+      footer p { font-size: 13px; color: var(--ink-3); margin: 0; }
+      footer .mono { font-size: 12.5px; }
+
+      /* ---------- Mobile ---------- */
+      @media (max-width: 640px) {
+        .wrap { padding: 0 14px 56px; }
+        header.report-head { padding-top: 30px; }
+        .score-strip { grid-template-columns: 1fr 1fr; }
+        .score-cell:nth-child(3) { border-left: none; }
+        .score-cell { border-top: 1px solid var(--line); }
+        .score-cell:nth-child(-n+2) { border-top: none; }
+
+        table.matrix thead { display: none; }
+        table.matrix, table.matrix tbody, table.matrix tr, table.matrix td { display: block; width: 100%; }
+        table.matrix tr { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+        table.matrix tr:last-child { border-bottom: none; }
+        table.matrix td { padding: 0; border-bottom: none; }
+        table.matrix tr.fail-row { box-shadow: inset 3px 0 0 var(--fail-line); }
+        td.rule { margin-bottom: 6px; }
+        td.result { margin-bottom: 8px; }
+
+        .finding { grid-template-columns: 1fr; gap: 10px; padding: 16px; }
+        .finding .fmeta { flex-direction: row; align-items: center; }
+        ul.sources li { flex-direction: column; gap: 2px; }
+        ul.sources .sname { min-width: 0; }
+        ul.sources .surl { min-width: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <header class="report-head">
+        <p class="kicker">Governance Audit Report</p>
+        <h1>Ethereum and Cosmos Hub Governance-Audit Framework</h1>
+        <p class="scored-line">Scored <span class="mono">2026-11-06 ~21:40 WIB</span> by a Python stdlib harness against live primary public sources. Total: <span class="mono">10/12</span> rules PASS (<span class="mono">20/24</span> points). Ethereum <span class="mono">6/6</span> PASS. Cosmos Hub <span class="mono">4/6</span> PASS.</p>
+
+        <div class="score-strip" role="group" aria-label="Score summary">
+          <div class="score-cell">
+            <div class="num">10/12</div>
+            <div class="lbl">Rules PASS</div>
+          </div>
+          <div class="score-cell">
+            <div class="num">20/24</div>
+            <div class="lbl">Points</div>
+          </div>
+          <div class="score-cell">
+            <div class="num">6/6</div>
+            <div class="lbl">Ethereum rules PASS</div>
+          </div>
+          <div class="score-cell bad">
+            <div class="num">4/6</div>
+            <div class="lbl">Cosmos Hub rules PASS</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ============ Section 1: Scored matrix ============ -->
+      <section aria-labelledby="s1">
+        <div class="sec-head"><span class="no">01</span><h2 id="s1">Scored matrix</h2></div>
+
+        <p class="chain-label">Ethereum <span class="tally">— 6/6 PASS</span></p>
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Rule</th><th scope="col">Result</th><th scope="col">Measured value</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rule"><span class="rid">ETH-1</span><span class="rname">EIP process documented</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">EIP-1 status <span class="mono">Living</span>; <span class="mono">44</span> sampled EIP files all parseable</td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">ETH-2</span><span class="rname">Upgrade EIPs Final</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured"><span class="mono">24/24</span> Pectra + Fusaka EIPs status <span class="mono">Final</span></td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">ETH-3</span><span class="rname">ACD cadence</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">Latest ACDE <span class="mono">#248</span>, <span class="mono">22 Oct 2026</span> (<span class="mono">15</span> days ago); latest ACDC <span class="mono">#190</span>, <span class="mono">29 Oct 2026</span> (<span class="mono">8</span> days ago); <span class="mono">479</span> rows in the meeting table</td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">ETH-4</span><span class="rname">Client diversity</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">Execution worst leader <span class="mono">50.13%</span> (Geth, ethernodes node share); supermajority dataset leader <span class="mono">43%</span> (Nethermind/Geth tie); consensus (MigaLabs, visible) leader Lighthouse <span class="mono">48.14%</span>; no dataset exceeds <span class="mono">66.6%</span></td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">ETH-5</span><span class="rname">Upgrade activation recorded</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">Latest active fork BPO2, activation timestamp <span class="mono">1767747671</span>, epoch <span class="mono">419072</span>; planned forks Glamsterdam and Hegota carry no activation</td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">ETH-6</span><span class="rname">EIP discoverability</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">Git tree lists <span class="mono">972</span> EIP files; eips.ethereum.org/all lists <span class="mono">1,232</span> rows</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="chain-label">Cosmos Hub <span class="tally">— 4/6 PASS</span></p>
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Rule</th><th scope="col">Result</th><th scope="col">Measured value</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rule"><span class="rid">COS-1</span><span class="rname">Proposals endpoint live</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured"><span class="mono">50</span> proposals returned; latest id <span class="mono">1060</span>, &ldquo;Migrate Community Pool USDC.n to USDC.inj via a Community Multisig&rdquo;, <span class="mono">PASSED</span></td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">COS-2</span><span class="rname">Params match documented values</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">quorum <span class="mono">0.400000000000000000</span>; threshold <span class="mono">0.500000000000000000</span>; veto_threshold <span class="mono">0.334000000000000000</span>; voting_period <span class="mono">604800s</span></td>
+            </tr>
+            <tr class="fail-row">
+              <td class="rule"><span class="rid">COS-3</span><span class="rname">Turnout meets quorum</span></td>
+              <td class="result"><span class="badge fail">FAIL</span></td>
+              <td class="measured">Last-5 decided turnouts: <span class="mono">#1060 53.44%</span>, <span class="mono">#1059 49.41%</span>, <span class="mono">#1058 59.02%</span>, <span class="mono">#1057 55.77%</span>, <span class="mono">#1056 29.90%</span> — <span class="mono">#1056</span> below the <span class="mono">0.4000</span> quorum</td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">COS-4</span><span class="rname">Deposit params</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">min_deposit <span class="mono">500 ATOM</span> (<span class="mono">500000000 uatom</span>); max_deposit_period <span class="mono">1209600s</span></td>
+            </tr>
+            <tr class="fail-row">
+              <td class="rule"><span class="rid">COS-5</span><span class="rname">Voting-power concentration</span></td>
+              <td class="result"><span class="badge fail">FAIL</span></td>
+              <td class="measured">Top-10 validators hold <span class="mono">56.27%</span> of bonded tokens (<span class="mono">191,918,216,784,882 / 341,070,008,069,953 uatom</span>); top-1 holds <span class="mono">18.69%</span>; <span class="mono">180</span> bonded validators</td>
+            </tr>
+            <tr>
+              <td class="rule"><span class="rid">COS-6</span><span class="rname">Voting window is 7 days (3 for expedited)</span></td>
+              <td class="result"><span class="badge pass">PASS</span></td>
+              <td class="measured">Last-10 decided: <span class="mono">9 x 604800s</span> standard, <span class="mono">1 x 259200s</span> expedited (<span class="mono">#1055</span>, Gaia v28.2.0 upgrade, <span class="mono">expedited=true</span>)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ Section 2: Findings ============ -->
+      <section aria-labelledby="s2">
+        <div class="sec-head"><span class="no">02</span><h2 id="s2">Findings</h2></div>
+
+        <article class="finding sev-high">
+          <div class="fmeta"><span class="fid">F-1</span><span class="badge high">HIGH</span></div>
+          <div>
+            <h3>Cosmos Hub voting power concentrated</h3>
+            <p>Top-10 validators hold <span class="mono">56.27%</span> of bonded tokens; top-1 holds <span class="mono">18.69%</span>. The top 10 alone exceed the <span class="mono">50%</span> approval threshold and the <span class="mono">40%</span> quorum.</p>
+          </div>
+        </article>
+
+        <article class="finding sev-high">
+          <div class="fmeta"><span class="fid">F-2</span><span class="badge high">HIGH</span></div>
+          <div>
+            <h3>Proposal #1056 decided below quorum</h3>
+            <p>Proposal <span class="mono">#1056</span> &ldquo;ATOM Refund &amp; Justice Bounty&rdquo; decided with <span class="mono">29.90%</span> turnout, below the <span class="mono">40%</span> quorum; independently veto-rejected at <span class="mono">89.74%</span> no-with-veto (<span class="mono">91,513,508,906,190</span> of <span class="mono">101,976,738,214,747 uatom</span>). Voting <span class="mono">2026-09-23</span> to <span class="mono">2026-09-30</span>. Turnout uses bonded tokens at retrieval; for <span class="mono">#1056</span> to have met quorum, vote-time bonded would have had to be at most <span class="mono">254,941,845,536,868 uatom</span>, about <span class="mono">25%</span> below the current total.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="fmeta"><span class="fid">F-3</span><span class="badge med">MEDIUM</span></div>
+          <div>
+            <h3>Ethereum ACD meeting notes moved out of the canonical repo directories</h3>
+            <p>Latest EL note Meeting <span class="mono">204</span> (<span class="mono">Jan 30, 2025</span>), latest CL note <span class="mono">call_150</span> (<span class="mono">Feb 6, 2025</span>); the live record is the README meeting table plus external transcripts.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="fmeta"><span class="fid">F-4</span><span class="badge med">MEDIUM</span></div>
+          <div>
+            <h3>Consensus client-diversity datasets disagree</h3>
+            <p>MigaLabs (visible): Lighthouse <span class="mono">48.14%</span>; Blockprint (hidden): Teku <span class="mono">99.83%</span>; Rated (hidden): Teku <span class="mono">53.86%</span>.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="fmeta"><span class="fid">F-5</span><span class="badge med">MEDIUM</span></div>
+          <div>
+            <h3>Default-visible execution dataset is stale</h3>
+            <p>The default-visible execution dataset (&ldquo;supermajority&rdquo;: Nethermind <span class="mono">43%</span>, Geth <span class="mono">43%</span>) carries a &ldquo;Data is stale&rdquo; warning — mostly not updated in over a year; Lido <span class="mono">Q4 2025</span>, Coinbase <span class="mono">Q1 2025</span>; ignores consolidations.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="fmeta"><span class="fid">F-6</span><span class="badge low">LOW</span></div>
+          <div>
+            <h3>EIP catalogue split across two repos</h3>
+            <p>eips.ethereum.org/all lists <span class="mono">1,232</span> numbers, ethereum/EIPs master holds <span class="mono">972</span> files; <span class="mono">260</span> numbers are ERCs now in ethereum/ERCs (verified: <span class="mono">ERC-838</span>, <span class="mono">ERC-7524</span>, <span class="mono">ERC-8444</span>).</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="fmeta"><span class="fid">F-7</span><span class="badge low">LOW</span></div>
+          <div>
+            <h3>Geth above a simple majority of execution node share</h3>
+            <p>Geth holds <span class="mono">50.13%</span> execution node share (ethernodes) — above a simple majority, below the <span class="mono">66.6%</span> supermajority threshold.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="fmeta"><span class="fid">F-8</span><span class="badge info">INFO</span></div>
+          <div>
+            <h3>Expedited proposals use a 3-day window</h3>
+            <p><span class="mono">#1055</span> &ldquo;Gaia v28.2.0 upgrade&rdquo;, <span class="mono">expedited=true</span>, voted <span class="mono">2026-09-17</span> to <span class="mono">2026-09-20</span> (<span class="mono">259,200s</span>), <span class="mono">PASSED</span>; expedited threshold <span class="mono">0.667</span>, expedited min deposit <span class="mono">501 ATOM</span>.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ Section 3: How to reproduce ============ -->
+      <section class="repro" aria-labelledby="s3">
+        <div class="sec-head"><span class="no">03</span><h2 id="s3">How to reproduce</h2></div>
+        <p class="cmd"><span class="prompt">$</span>python3 src/fetch_governance.py</p>
+        <p>Run: <span class="mono">python3 src/fetch_governance.py</span> (Python stdlib only, no API keys, ~2 minutes). It fetches live data, saves every raw retrieval under <span class="mono">outputs/raw/</span> with timestamps and SHA-256, scores the 12 rules, and writes <span class="mono">outputs/results.json</span> and <span class="mono">outputs/results.txt</span>.</p>
+      </section>
+
+      <!-- ============ Section 4: Primary sources ============ -->
+      <section aria-labelledby="s4">
+        <div class="sec-head"><span class="no">04</span><h2 id="s4">Primary sources</h2></div>
+        <ul class="sources">
+          <li><span class="sname">EIPs git tree</span><span class="surl">api.github.com/repos/ethereum/EIPs/git/trees/master?recursive=1</span></li>
+          <li><span class="sname">EIP files</span><span class="surl">raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-N.md</span></li>
+          <li><span class="sname">all-forks.json</span><span class="surl">raw.githubusercontent.com/ethereum/pm/master/all-forks.json</span></li>
+          <li><span class="sname">pm README</span><span class="surl">raw.githubusercontent.com/ethereum/pm/master/README.md</span></li>
+          <li><span class="sname">ACD directories</span><span class="surl">api.github.com/repos/ethereum/pm/contents/AllCoreDevs-EL-Meetings and AllCoreDevs-CL-Meetings</span></li>
+          <li><span class="sname">Client diversity</span><span class="surl">clientdiversity.org</span></li>
+          <li><span class="sname">EIP catalogue</span><span class="surl">eips.ethereum.org/all</span></li>
+          <li><span class="sname">ERC samples</span><span class="surl">raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-N.md</span></li>
+          <li><span class="sname">Cosmos Hub LCD</span><span class="surl">lcd-cosmoshub.keplr.app/cosmos/gov/v1/ and /cosmos/staking/v1beta1/</span></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>Scored <span class="mono">2026-11-06 ~21:40 WIB</span> · <span class="mono">10/12</span> rules PASS · <span class="mono">20/24</span> points · Ethereum <span class="mono">6/6</span> · Cosmos Hub <span class="mono">4/6</span></p>
+      </footer>
+
+    </div>
+  </body>
+</html>

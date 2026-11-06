@@ -1,0 +1,13 @@
+Ethereum and Cosmos Hub Governance-Audit Framework — public artifact page
+============================================================================
+
+Durable public link:
+  https://github.com/araupooo/ethereum-cosmoshub-governance-audit-framework
+
+  Public GitHub repository (visibility: Public). Default branch main.
+  Root files: README.md, rubric.md, matrix.md, findings.md, index.md,
+  index.html (the rendered artifact page), walkthrough.log,
+  src/fetch_governance.py, outputs/results.json, outputs/results.txt,
+  outputs/raw/ (66 unedited retrievals). The page in index.html presents
+  the scored matrix (10/12 PASS, 20/24 points) and the findings memo
+  (F-1..F-8) with the measured values from this pack.
