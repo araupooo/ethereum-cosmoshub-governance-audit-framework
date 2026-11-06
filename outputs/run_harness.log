@@ -1,0 +1,98 @@
+[2026-11-06 21:39:09 WIB / 2026-11-06T14:39:09Z] harness start
+[2026-11-06 21:39:11 WIB / 2026-11-06T14:39:11Z] FETCH 200 349045b https://api.github.com/repos/ethereum/EIPs/git/trees/master?recursive=1 -> eth_eips_tree.json
+[2026-11-06 21:39:11 WIB / 2026-11-06T14:39:11Z] EIP files in tree: 972 (truncated=False)
+[2026-11-06 21:39:11 WIB / 2026-11-06T14:39:11Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-1.md -> eth_eip_1.md
+[2026-11-06 21:39:12 WIB / 2026-11-06T14:39:12Z] FETCH 206 128b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-20.md -> eth_eip_20.md
+[2026-11-06 21:39:13 WIB / 2026-11-06T14:39:13Z] FETCH 206 130b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-721.md -> eth_eip_721.md
+[2026-11-06 21:39:14 WIB / 2026-11-06T14:39:14Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-1153.md -> eth_eip_1153.md
+[2026-11-06 21:39:14 WIB / 2026-11-06T14:39:14Z] FETCH 206 132b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-1155.md -> eth_eip_1155.md
+[2026-11-06 21:39:15 WIB / 2026-11-06T14:39:15Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-1559.md -> eth_eip_1559.md
+[2026-11-06 21:39:16 WIB / 2026-11-06T14:39:16Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-2537.md -> eth_eip_2537.md
+[2026-11-06 21:39:17 WIB / 2026-11-06T14:39:17Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-2718.md -> eth_eip_2718.md
+[2026-11-06 21:39:19 WIB / 2026-11-06T14:39:19Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-2930.md -> eth_eip_2930.md
+[2026-11-06 21:39:20 WIB / 2026-11-06T14:39:20Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-2935.md -> eth_eip_2935.md
+[2026-11-06 21:39:21 WIB / 2026-11-06T14:39:21Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-3675.md -> eth_eip_3675.md
+[2026-11-06 21:39:22 WIB / 2026-11-06T14:39:22Z] FETCH 206 132b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-4337.md -> eth_eip_4337.md
+[2026-11-06 21:39:22 WIB / 2026-11-06T14:39:22Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-4399.md -> eth_eip_4399.md
+[2026-11-06 21:39:23 WIB / 2026-11-06T14:39:23Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-4788.md -> eth_eip_4788.md
+[2026-11-06 21:39:24 WIB / 2026-11-06T14:39:24Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-4844.md -> eth_eip_4844.md
+[2026-11-06 21:39:25 WIB / 2026-11-06T14:39:25Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-4895.md -> eth_eip_4895.md
+[2026-11-06 21:39:26 WIB / 2026-11-06T14:39:26Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-5656.md -> eth_eip_5656.md
+[2026-11-06 21:39:26 WIB / 2026-11-06T14:39:26Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-6110.md -> eth_eip_6110.md
+[2026-11-06 21:39:27 WIB / 2026-11-06T14:39:27Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-6780.md -> eth_eip_6780.md
+[2026-11-06 21:39:28 WIB / 2026-11-06T14:39:28Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7002.md -> eth_eip_7002.md
+[2026-11-06 21:39:28 WIB / 2026-11-06T14:39:28Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7044.md -> eth_eip_7044.md
+[2026-11-06 21:39:29 WIB / 2026-11-06T14:39:29Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7045.md -> eth_eip_7045.md
+[2026-11-06 21:39:30 WIB / 2026-11-06T14:39:30Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7251.md -> eth_eip_7251.md
+[2026-11-06 21:39:31 WIB / 2026-11-06T14:39:31Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7514.md -> eth_eip_7514.md
+[2026-11-06 21:39:31 WIB / 2026-11-06T14:39:31Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7516.md -> eth_eip_7516.md
+[2026-11-06 21:39:32 WIB / 2026-11-06T14:39:32Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7549.md -> eth_eip_7549.md
+[2026-11-06 21:39:33 WIB / 2026-11-06T14:39:33Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7594.md -> eth_eip_7594.md
+[2026-11-06 21:39:34 WIB / 2026-11-06T14:39:34Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7623.md -> eth_eip_7623.md
+[2026-11-06 21:39:34 WIB / 2026-11-06T14:39:34Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7642.md -> eth_eip_7642.md
+[2026-11-06 21:39:35 WIB / 2026-11-06T14:39:35Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7685.md -> eth_eip_7685.md
+[2026-11-06 21:39:36 WIB / 2026-11-06T14:39:36Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7691.md -> eth_eip_7691.md
+[2026-11-06 21:39:37 WIB / 2026-11-06T14:39:37Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7702.md -> eth_eip_7702.md
+[2026-11-06 21:39:37 WIB / 2026-11-06T14:39:37Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7823.md -> eth_eip_7823.md
+[2026-11-06 21:39:38 WIB / 2026-11-06T14:39:38Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7825.md -> eth_eip_7825.md
+[2026-11-06 21:39:39 WIB / 2026-11-06T14:39:39Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7840.md -> eth_eip_7840.md
+[2026-11-06 21:39:39 WIB / 2026-11-06T14:39:39Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7883.md -> eth_eip_7883.md
+[2026-11-06 21:39:40 WIB / 2026-11-06T14:39:40Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7892.md -> eth_eip_7892.md
+[2026-11-06 21:39:41 WIB / 2026-11-06T14:39:41Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7910.md -> eth_eip_7910.md
+[2026-11-06 21:39:42 WIB / 2026-11-06T14:39:42Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7917.md -> eth_eip_7917.md
+[2026-11-06 21:39:43 WIB / 2026-11-06T14:39:43Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7918.md -> eth_eip_7918.md
+[2026-11-06 21:39:44 WIB / 2026-11-06T14:39:44Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7934.md -> eth_eip_7934.md
+[2026-11-06 21:39:44 WIB / 2026-11-06T14:39:44Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7935.md -> eth_eip_7935.md
+[2026-11-06 21:39:45 WIB / 2026-11-06T14:39:45Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7939.md -> eth_eip_7939.md
+[2026-11-06 21:39:46 WIB / 2026-11-06T14:39:46Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-7951.md -> eth_eip_7951.md
+[2026-11-06 21:39:46 WIB / 2026-11-06T14:39:46Z] EIP front matter fetched for 44 EIPs
+[2026-11-06 21:39:47 WIB / 2026-11-06T14:39:47Z] FETCH 200 10154b https://raw.githubusercontent.com/ethereum/pm/master/all-forks.json -> eth_all_forks.json
+[2026-11-06 21:39:47 WIB / 2026-11-06T14:39:47Z] forks: 27; latest active: BPO2 @1767747671; planned: ['Glamsterdam', 'Hegota']
+[2026-11-06 21:39:47 WIB / 2026-11-06T14:39:47Z] FETCH 200 169047b https://raw.githubusercontent.com/ethereum/pm/master/README.md -> eth_pm_readme.md
+[2026-11-06 21:39:47 WIB / 2026-11-06T14:39:47Z] ACD table rows: 479; latest ACDE={'date': '22 Oct 2026', 'type': 'ACDE', 'number': 248, 'epoch_days_ago': 15}; latest ACDC={'date': '29 Oct 2026', 'type': 'ACDC', 'number': 190, 'epoch_days_ago': 8}
+[2026-11-06 21:39:48 WIB / 2026-11-06T14:39:48Z] FETCH 200 176070b https://api.github.com/repos/ethereum/pm/contents/AllCoreDevs-EL-Meetings -> eth_acd_el_dir.json
+[2026-11-06 21:39:49 WIB / 2026-11-06T14:39:49Z] FETCH 200 126680b https://api.github.com/repos/ethereum/pm/contents/AllCoreDevs-CL-Meetings -> eth_acd_cl_dir.json
+[2026-11-06 21:39:49 WIB / 2026-11-06T14:39:49Z] ACD note dirs: {'el': {'count': 199, 'max_number': 2016}, 'cl': {'count': 148, 'max_number': 150}}
+[2026-11-06 21:39:50 WIB / 2026-11-06T14:39:50Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/pm/master/AllCoreDevs-EL-Meetings/Meeting%20204.md -> eth_acd_el_latest.md
+[2026-11-06 21:39:50 WIB / 2026-11-06T14:39:50Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/pm/master/AllCoreDevs-CL-Meetings/call_150.md -> eth_acd_cl_latest.md
+[2026-11-06 21:39:50 WIB / 2026-11-06T14:39:50Z] latest note dates: EL=Jan 30, 2025, 14:00-15:30 UTC; CL=Thursday 2025/2/6 at 14:00 UTC
+[2026-11-06 21:39:51 WIB / 2026-11-06T14:39:51Z] FETCH 200 211381b https://clientdiversity.org/ -> eth_client_diversity.html
+[2026-11-06 21:39:51 WIB / 2026-11-06T14:39:51Z] execution datasets: {'ethernodes': {'Geth': 50.13, 'Nethermind': 25.46, 'Besu': 9.45, 'Reth': 7.67, 'Erigon': 6.53, 'Other': 0.78}, 'supermajority': {'Nethermind': 43.0, 'Geth': 43.0, 'Besu': 8.0, 'Reth': 3.0, 'Erigon': 3.0, 'Other': 0.0}}
+[2026-11-06 21:39:51 WIB / 2026-11-06T14:39:51Z] consensus datasets: {'blockprint': {'Teku': 99.83, 'Lighthouse': 0.16, 'Lodestar': 0.01, 'Grandine': 0.0, 'Other': 0.0, 'Nimbus': 0.0, 'Prysm': 0.0}, 'migalabs': {'Lighthouse': 48.14, 'Nimbus': 17.98, 'Prysm': 17.53, 'Teku': 6.4, 'Unknown': 3.29, 'Lodestar': 2.72, 'Erigon': 2.35, 'Grandine': 1.6, 'Other': 0.0}, 'rated': {'Teku': 53.86, 'Prysm': 21.17, 'Lighthouse': 20.6, 'Nimbus': 3.12, 'Grandine': 0.72, 'Lodestar': 0.53, 'Other': 0.0}}
+[2026-11-06 21:39:51 WIB / 2026-11-06T14:39:51Z] stale note: This data set is mostly comprised of mostly time-intensive manually-gathered data which requires reaching out to each entity. Most of this data hasn't been updated in over a year.
+[2026-11-06 21:39:52 WIB / 2026-11-06T14:39:52Z] FETCH 200 516838b https://eips.ethereum.org/all -> eth_eips_all.html
+[2026-11-06 21:39:52 WIB / 2026-11-06T14:39:52Z] /all page EIP rows: 1232; numbers on page but not in tree: 260
+[2026-11-06 21:39:53 WIB / 2026-11-06T14:39:53Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-838.md -> eth_erc_838_head.md
+[2026-11-06 21:39:53 WIB / 2026-11-06T14:39:53Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-7524.md -> eth_erc_7524_head.md
+[2026-11-06 21:39:54 WIB / 2026-11-06T14:39:54Z] FETCH 206 2048b https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-8444.md -> eth_erc_8444_head.md
+[2026-11-06 21:39:54 WIB / 2026-11-06T14:39:54Z] ERC-split samples in ethereum/ERCs: {838: True, 7524: True, 8444: True}
+[2026-11-06 21:39:56 WIB / 2026-11-06T14:39:56Z] FETCH 200 154347b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/proposals?pagination.limit=50&pagination.reverse=true -> cosmos_proposals.json
+[2026-11-06 21:39:56 WIB / 2026-11-06T14:39:56Z] Cosmos proposals: 50 returned; latest id=1060; decided in window: 50
+[2026-11-06 21:39:57 WIB / 2026-11-06T14:39:57Z] FETCH 200 716b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/params/voting -> cosmos_params_voting.json
+[2026-11-06 21:39:58 WIB / 2026-11-06T14:39:58Z] FETCH 200 777b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/params/deposit -> cosmos_params_deposit.json
+[2026-11-06 21:39:58 WIB / 2026-11-06T14:39:58Z] Cosmos voting params: {'min_deposit': [{'denom': 'uatom', 'amount': '500000000'}], 'max_deposit_period': '1209600s', 'voting_period': '604800s', 'quorum': '0.400000000000000000', 'threshold': '0.500000000000000000', 'veto_threshold': '0.334000000000000000', 'min_initial_deposit_ratio': '0.100000000000000000', 'proposal_cancel_ratio': '0.500000000000000000', 'proposal_cancel_dest': '', 'expedited_voting_period': '259200s', 'expedited_threshold': '0.667000000000000000', 'expedited_min_deposit': [{'denom': 'uatom', 'amount': '501000000'}], 'burn_vote_quorum': False, 'burn_proposal_deposit_prevote': False, 'burn_vote_veto': True, 'min_deposit_ratio': '0.010000000000000000'}
+[2026-11-06 21:39:58 WIB / 2026-11-06T14:39:58Z] Cosmos deposit params: {'min_deposit': [{'denom': 'uatom', 'amount': '500000000'}], 'max_deposit_period': '1209600s', 'voting_period': '604800s', 'quorum': '0.400000000000000000', 'threshold': '0.500000000000000000', 'veto_threshold': '0.334000000000000000', 'min_initial_deposit_ratio': '0.100000000000000000', 'proposal_cancel_ratio': '0.500000000000000000', 'proposal_cancel_dest': '', 'expedited_voting_period': '259200s', 'expedited_threshold': '0.667000000000000000', 'expedited_min_deposit': [{'denom': 'uatom', 'amount': '501000000'}], 'burn_vote_quorum': False, 'burn_proposal_deposit_prevote': False, 'burn_vote_veto': True, 'min_deposit_ratio': '0.010000000000000000'}
+[2026-11-06 21:39:58 WIB / 2026-11-06T14:39:58Z] FETCH 200 81b https://lcd-cosmoshub.keplr.app/cosmos/staking/v1beta1/pool -> cosmos_pool.json
+[2026-11-06 21:40:00 WIB / 2026-11-06T14:40:00Z] FETCH 200 172763b https://lcd-cosmoshub.keplr.app/cosmos/staking/v1beta1/validators?pagination.limit=200&status=BOND_STATUS_BONDED -> cosmos_validators.json
+[2026-11-06 21:40:00 WIB / 2026-11-06T14:40:00Z] Cosmos bonded: 341070008069953 uatom; validators: 180; top10 share: 0.5627
+[2026-11-06 21:40:01 WIB / 2026-11-06T14:40:01Z] FETCH 200 133b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/proposals/1060/tally -> cosmos_tally_1060.json
+[2026-11-06 21:40:02 WIB / 2026-11-06T14:40:02Z] FETCH 200 131b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/proposals/1059/tally -> cosmos_tally_1059.json
+[2026-11-06 21:40:03 WIB / 2026-11-06T14:40:03Z] FETCH 200 135b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/proposals/1058/tally -> cosmos_tally_1058.json
+[2026-11-06 21:40:05 WIB / 2026-11-06T14:40:05Z] FETCH 200 134b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/proposals/1057/tally -> cosmos_tally_1057.json
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z] FETCH 200 135b https://lcd-cosmoshub.keplr.app/cosmos/gov/v1/proposals/1056/tally -> cosmos_tally_1056.json
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z] turnouts: [{'id': '1060', 'status': 'PROPOSAL_STATUS_PASSED', 'turnout': 0.5344, 'yes': '113696752056036', 'no': '17726454819', 'abstain': '68536317065413', 'no_with_veto': '4232568195'}, {'id': '1059', 'status': 'PROPOSAL_STATUS_PASSED', 'turnout': 0.4941, 'yes': '167514965005755', 'no': '2335547396', 'abstain': '14360797150', 'no_with_veto': '982855548871'}, {'id': '1058', 'status': 'PROPOSAL_STATUS_PASSED', 'turnout': 0.5902, 'yes': '132079367147360', 'no': '354769347250', 'abstain': '68846826073786', 'no_with_veto': '14505707174'}, {'id': '1057', 'status': 'PROPOSAL_STATUS_PASSED', 'turnout': 0.5577, 'yes': '121303066597126', 'no': '34488180177', 'abstain': '68828659818336', 'no_with_veto': '41404538899'}, {'id': '1056', 'status': 'PROPOSAL_STATUS_REJECTED', 'turnout': 0.299, 'yes': '590539880162', 'no': '6017273957202', 'abstain': '3855415471193', 'no_with_veto': '91513508906190'}]
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z] voting windows: [{'id': '1060', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1059', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1058', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1057', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1056', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1055', 'expedited': True, 'voting_window_seconds': 259200, 'expected_seconds': 259200, 'matches_expected': True}, {'id': '1054', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1053', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1052', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}, {'id': '1051', 'expedited': False, 'voting_window_seconds': 604800, 'expected_seconds': 604800, 'matches_expected': True}]
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z] SCORE: 10/12 rules PASS (20/24 points); UNAVAILABLE: 0
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   ETH-1: PASS — EIP-1 status=Living; sampled 44 EIPs, unparseable=[]
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   ETH-2: PASS — Pectra+Fusaka EIPs checked: 24; non-Final: none
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   ETH-3: PASS — latest ACDE #248 22 Oct 2026 (15d ago); latest ACDC #190 29 Oct 2026 (8d ago)
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   ETH-4: PASS — execution max across datasets: ethernodes leader ('Geth', 50.13), supermajority leader ('Nethermind', 43.0) (worst 50.13%); consensus (MigaLabs, visible) leader
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   ETH-5: PASS — latest active fork BPO2 activated ts=1767747671 (now 1793976006); planned forks without activation: True (['Glamsterdam', 'Hegota'])
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   ETH-6: PASS — git tree EIP files=972; /all page rows=1232
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   COS-1: PASS — returned=50; latest id=1060; all carry id/status/title=True
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   COS-2: PASS — quorum=0.400000000000000000; threshold=0.500000000000000000; veto_threshold=0.334000000000000000; voting_period=604800s
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   COS-3: FAIL — last-5 turnouts: [('1060', 0.5344), ('1059', 0.4941), ('1058', 0.5902), ('1057', 0.5577), ('1056', 0.299)]; quorum=0.4; below-quorum=[{'id': '1056', 'status': '
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   COS-4: PASS — min_deposit=[{'denom': 'uatom', 'amount': '500000000'}]; max_deposit_period=1209600s
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   COS-5: FAIL — top-10 validators share of bonded tokens: 0.5627 (191918216784882 / 341070008069953 uatom); validators=180
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z]   COS-6: PASS — last-10 voting windows: [('1060', 604800, 'standard'), ('1059', 604800, 'standard'), ('1058', 604800, 'standard'), ('1057', 604800, 'standard'), ('1056', 604800
+[2026-11-06 21:40:06 WIB / 2026-11-06T14:40:06Z] wrote outputs/results.json + outputs/results.txt
